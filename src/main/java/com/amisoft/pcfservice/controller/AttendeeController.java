@@ -3,8 +3,6 @@ package com.amisoft.pcfservice.controller;
 import com.amisoft.pcfservice.dao.AttendeeDao;
 import com.amisoft.pcfservice.entity.Attendee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,14 +30,16 @@ public class AttendeeController {
 
 
     @GetMapping("/findAllAttendee")
-    public ResponseEntity<List<Attendee>> fetchAllAttendee() {
+    public String fetchAllAttendee() {
 
-        List<Attendee> attendeeList = (List<Attendee>)attendeeDao.findAll();
+        List<Attendee> attendeeList = (List<Attendee>) attendeeDao.findAll();
+        StringBuilder attendeeNameCollector = new StringBuilder("<center>");
 
-        if (attendeeList.size() > 0)
-            return ResponseEntity.status(HttpStatus.OK).body((attendeeList));
-        else
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        attendeeList.forEach(s -> attendeeNameCollector.append("<br><b>" + s.getFirstName() + "</b></br>"));
+        attendeeNameCollector.append("</center>");
+
+        return attendeeNameCollector.toString();
+
 
     }
 

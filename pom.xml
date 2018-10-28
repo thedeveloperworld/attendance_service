@@ -5,10 +5,10 @@
 
     <groupId>com.amisoft.pcfservice</groupId>
     <artifactId>pcfservice</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>pcfservice</name>
+    <name>pcfservice_attendee</name>
     <description>PCF user defined service</description>
 
     <parent>

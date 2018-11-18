@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/attendee")
+
 public class AttendeeController {
 
     @Autowired

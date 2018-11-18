@@ -1,7 +1,7 @@
 ---
 
 server:
-  port: 8001
+  port: 8003
 
 spring:
   datasource:
@@ -11,6 +11,6 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: false
 
